@@ -11,9 +11,9 @@ class MyApp extends StatelessWidget {
   WebSocketChannel getChannel() {
     // this was the first issue I ran into.  the WebSocket package uses a different channel for web vs. android/ios
     if (kIsWeb) {
-      return HtmlWebSocketChannel.connect('ws://localhost:8080/echo');
+      return HtmlWebSocketChannel.connect('ws://127.0.0.1:8000/echo');
     } else {
-      return IOWebSocketChannel.connect('ws://localhost:8080/echo');
+      return IOWebSocketChannel.connect('ws://localhost:8000/echo');
     }
   }
 

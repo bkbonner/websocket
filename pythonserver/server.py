@@ -1,5 +1,5 @@
 from flask import Flask
-from sok import Sockets
+from flask_sockets import Sockets
 
 
 app = Flask(__name__)
@@ -10,6 +10,7 @@ sockets = Sockets(app)
 def echo_socket(ws):
     while not ws.closed:
         message = ws.receive()
+        print('Received', message)
         ws.send(message)
 
 
